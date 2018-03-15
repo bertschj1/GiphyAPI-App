@@ -3,14 +3,20 @@ var apiKey = "&api_key=dc6zaTOxFJmzC&q=";
 var input;
 
 function setup() {
-  noCanvas();
   var button = select('#submit');
   button.mousePressed(giveGIF);
+  
+  var cButton = select('#clear');
+  cButton.mousePressed(resetSketch);  
   input = select('#searchGIF');
 }
 
-function giveGIF()
-{
+function resetSketch() {
+  location.reload();
+}
+
+
+function giveGIF(){
   var url = api + apiKey + input.value();
   loadJSON(url, gotData);
 }
